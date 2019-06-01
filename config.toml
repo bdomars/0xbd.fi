@@ -61,3 +61,13 @@ pygmentscodefencesguesssyntax = true
 [languages]
     [languages.en]
         languagename = "English"
+
+        [[languages.en.menu.main]]
+        name = "About"
+        weight = 1
+        url = "/about/"
+
+        [[languages.en.menu.main]]
+        name = "Contact"
+        weight = 2
+        url = "/contact"
