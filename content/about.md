@@ -1,5 +1,5 @@
 +++
-title = "About Me"
+title = "About me"
 slug = "about"
 +++
 Hello and welcome to my little corner of the internet.
