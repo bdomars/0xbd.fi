@@ -3,3 +3,7 @@ div.avatar img {
 	padding: 2px;
 	box-shadow: 0 0 5px 1px #ddd;
 }
+
+.navigation-title {
+	text-transform: none !important;
+}
