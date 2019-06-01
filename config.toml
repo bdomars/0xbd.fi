@@ -63,6 +63,11 @@ googleAnalytics = "UA-141218930-1"
     icon = "fab fa-linkedin"
     weight = 3
     url = "https://www.linkedin.com/in/bdomars/"
+[[params.social]]
+    name = "Steam"
+    icon = "fab fa-steam"
+    weight = 4
+    url = "https://steamcommunity.com/id/elbjorno/"
 
 
 [languages]
@@ -87,4 +92,4 @@ googleAnalytics = "UA-141218930-1"
         [[languages.en.menu.main]]
         name = "Contact"
         weight = 4
-        url = "/contact"
+        url = "/contact/"
