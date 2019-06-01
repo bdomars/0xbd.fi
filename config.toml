@@ -13,6 +13,8 @@ pygmentsstyle = "b2"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+googleAnalytics = "UA-141218930-1"
+
 [params]
     author = "Björn Domars"
     description = "Björn's personal website"
