@@ -9,4 +9,4 @@ jobs:
       - add_ssh_keys:
           fingerprints:
           - "f5:d9:d8:b1:d6:9e:e6:dc:a8:43:88:94:5e:2e:06:06"
-      - run: rsync -av -e "ssh -p 3022" public/ bdomars@0xbd.fi:/srv/www/0xbd.fi
+      - run: rsync -av -e "ssh -p 3022 -o StrictHostKeyChecking=accept-new" public/ bdomars@0xbd.fi:/srv/www/0xbd.fi
