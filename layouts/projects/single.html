@@ -21,12 +21,9 @@
               {{ i18n "reading_time" .ReadingTime }}
             </span>
           </div>
+          {{ with .Page.Params.Github }}{{ partial "github-link" . }}{{ end }}
           {{ with .Page.Params.Categories }}{{ partial "taxonomy/categories" . }}{{ end }}
           {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags" . }}{{ end }}
-          <div class="github-link">
-              <i class="fab fa-github"></i>
-              <a href="https://github.com/{{ .Page.Params.Github }}">{{ .Page.Params.Github }}</a>
-          </div>
         </div>
       </header>
 
