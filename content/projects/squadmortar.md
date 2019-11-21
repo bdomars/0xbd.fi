@@ -1,7 +1,8 @@
 ---
 title: "Squad mortar script"
 date: 2019-11-21T15:54:33+02:00
-draft: true
+draft: false
+slug: "squad-mortar-script"
 github: "bdomars/mortar-py"
 tags: ["squad"]
 categories: ["projects"]

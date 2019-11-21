@@ -4,9 +4,7 @@
 {{ define "content" }}
   <section class="container list">
     <h1 class="title">{{ .Title }}</h1>
-    <p>This is a little collection of projects that I've made.</p>
-    <p>Here I'll try to put things that are somewhat completed and someone else might find a use for.</p>
-    <h3 class="title">The {{ .Title }}</h1>
+    {{ .Content }}
     <ul>
       {{- range .Paginator.Pages -}}
         {{- .Render "li" -}}
