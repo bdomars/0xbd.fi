@@ -7,3 +7,7 @@ div.avatar img {
 .navigation-title {
 	text-transform: none !important;
 }
+
+.reading-time {
+	margin-right: 1.5em;
+}

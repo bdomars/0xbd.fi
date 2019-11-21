@@ -25,7 +25,7 @@ googleAnalytics = "UA-141218930-1"
 
     dateformat = "January 2, 2006"
 
-    hideCredits = true
+    hideCredits = false
     hideCopyright = true
 
     # Git Commit in Footer, uncomment the line below to enable it.
