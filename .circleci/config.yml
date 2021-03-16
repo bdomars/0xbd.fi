@@ -12,9 +12,6 @@ jobs:
     steps:
       - checkout
       - run: hugo
-      - add_ssh_keys:
-          fingerprints:
-          - "b0:e4:ab:66:f5:f3:f3:5f:97:46:e8:22:03:64:e1:90"
       - run: rsync -av -e "ssh -p 3022 -o StrictHostKeyChecking=accept-new" public/ bdomars@0xbd.fi:/srv/www/0xbd.fi
 workflows:
   version: 2
