@@ -1,0 +1,91 @@
+name: Build and deploy site
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to GitHub Container Registry
+        if: github.event_name == 'push'
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate image metadata
+        id: metadata
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest
+            type=sha,prefix=sha-
+
+      - name: Pick the tag to deploy
+        id: tag
+        run: echo "tag=sha-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      # Pull requests only check that the site builds; nothing is published.
+      - name: Build and publish image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: ${{ github.event_name == 'push' }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    # Deploys write to the infra repo one at a time, in push order.
+    concurrency:
+      group: deploy-infra
+      cancel-in-progress: false
+
+    steps:
+      - name: Check out infra repository
+        uses: actions/checkout@v6
+        with:
+          repository: bdomars/infra
+          ref: argocd
+          ssh-key: ${{ secrets.INFRA_DEPLOY_KEY }}
+
+      - name: Point the site at the new image
+        working-directory: apps/nginx
+        run: kustomize edit set image "${REGISTRY}/${IMAGE_NAME}:${{ needs.build.outputs.tag }}"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/nginx/kustomization.yaml
+          git diff --cached --quiet && exit 0
+          git commit -m "Deploy 0xbd.fi ${{ needs.build.outputs.tag }}" -m "From ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+          git push
