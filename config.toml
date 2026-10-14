@@ -40,6 +40,9 @@ canonifyURLs = true
     # Custom JS
     customJS = []
 
+    [params.goatCounter]
+        code = "bdomars"
+
 [taxonomies]
   category = "categories"
   series = "series"
