@@ -78,14 +78,14 @@ jobs:
           ssh-key: ${{ secrets.INFRA_DEPLOY_KEY }}
 
       - name: Point the site at the new image
-        working-directory: apps/nginx
+        working-directory: apps/personal-site
         run: kustomize edit set image "${REGISTRY}/${IMAGE_NAME}:${{ needs.build.outputs.tag }}"
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add apps/nginx/kustomization.yaml
+          git add apps/personal-site/kustomization.yaml
           git diff --cached --quiet && exit 0
           git commit -m "Deploy 0xbd.fi ${{ needs.build.outputs.tag }}" -m "From ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
           git push
