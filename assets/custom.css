@@ -11,3 +11,15 @@ div.avatar img {
 .reading-time {
 	margin-right: 1.5em;
 }
+
+body.colorscheme-dark div.avatar img {
+	border-color: #4f4f4f;
+	box-shadow: 0 0 5px 1px #4f4f4f;
+}
+
+@media (prefers-color-scheme: dark) {
+	body.colorscheme-auto div.avatar img {
+		border-color: #4f4f4f;
+		box-shadow: 0 0 5px 1px #4f4f4f;
+	}
+}
