@@ -3,6 +3,13 @@
 	admin off
 	auto_https off
 	persist_config off
+
+	# Use the client IP from Traefik's X-Forwarded-For. Only cluster-internal
+	# traffic can reach this server, so trusting private ranges is safe.
+	servers {
+		trusted_proxies static private_ranges
+		trusted_proxies_strict
+	}
 }
 
 :8080 {
