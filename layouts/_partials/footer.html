@@ -1,0 +1,14 @@
+<footer class="footer">
+  <section class="container">
+    {{ with .Site.Params.footerContent | safeHTML }}
+      <p>{{ . }}</p>
+    {{ end }}
+    {{ if not .Site.Params.hideCopyright }}
+      © {{ now.Year }}{{ with .Site.Params.author }} {{ . }}{{ end }}
+    {{ end }}
+    {{ if not .Site.Params.hideCredits }}
+      {{ if not .Site.Params.hideCopyright }} · {{ end }}
+      {{ i18n "powered_by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    {{ end }}
+  </section>
+</footer>

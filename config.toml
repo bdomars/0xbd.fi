@@ -1,47 +1,44 @@
-baseurl = "https://0xbd.fi"
+baseURL = "https://0xbd.fi"
 title = "0xbd.fi"
 
-theme = "hugo-coder"
+locale = "en"
+defaultContentLanguage = "en"
 
-languagecode = "en"
-defaultcontentlanguage = "en"
+canonifyURLs = true
 
-paginate = 20
-canonifyurls = true
+[pagination]
+    pagerSize = 20
 
-pygmentsstyle = "b2"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-googleAnalytics = "UA-141218930-1"
+[markup]
+    [markup.highlight]
+        style = "b2"
+        guessSyntax = true
 
 [params]
     author = "Björn Domars"
     description = "Björn's personal website"
     keywords = "blog,developer,personal"
     info = "Software Engineer and Tinkerer"
-    avatarurl = "images/avatar.jpg"
-    footercontent = "Always carry a towel."
+    avatarURL = "images/avatar.jpg"
+    footerContent = "Always carry a towel."
 
-    dateformat = "January 2, 2006"
+    dateFormat = "January 2, 2006"
 
     hideCredits = false
     hideCopyright = true
 
-    # Git Commit in Footer, uncomment the line below to enable it.
-    #commit = "https://github.com/luizdepra/hugo-coder/tree/"
-
-    # Use inverted colors
-    inverted = false
+    # Specify light/dark colorscheme: "auto", "dark" or "light"
+    colorScheme = "auto"
+    hideColorSchemeToggle = false
 
     # Series see also post count
     maxSeeAlsoItems = 5
 
     # Custom CSS
-    custom_css = [ "custom.css" ]
+    customCSS = [ "custom.css" ]
 
     # Custom JS
-    custom_js = []
+    customJS = []
 
 [taxonomies]
   category = "categories"
@@ -50,24 +47,24 @@ googleAnalytics = "UA-141218930-1"
 
 [[params.social]]
     name = "Github"
-    icon = "fab fa-github"
+    icon = "fa-brands fa-github fa-2x"
     weight = 2
     url = "https://github.com/bdomars/"
 [[params.social]]
     name = "LinkedIn"
-    icon = "fab fa-linkedin"
+    icon = "fa-brands fa-linkedin fa-2x"
     weight = 3
     url = "https://www.linkedin.com/in/bdomars/"
 [[params.social]]
     name = "Steam"
-    icon = "fab fa-steam"
+    icon = "fa-brands fa-steam fa-2x"
     weight = 4
     url = "https://steamcommunity.com/id/elbjorno/"
 
 
 [languages]
     [languages.en]
-        languagename = "English"
+        label = "English"
 
         [[languages.en.menu.main]]
         name = "About"
@@ -78,3 +75,7 @@ googleAnalytics = "UA-141218930-1"
         name = "Contact"
         weight = 4
         url = "/contact/"
+
+[module]
+  [[module.imports]]
+    path = "github.com/luizdepra/hugo-coder"
