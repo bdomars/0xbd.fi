@@ -31,7 +31,7 @@ jobs:
       - install-hugo
       - run: hugo
       - run: sudo apt-get update && sudo apt-get install -y rsync
-      - run: rsync -av -e "ssh -o StrictHostKeyChecking=accept-new" public/ bdomars@0xbd.fi:/srv/www/0xbd.fi
+      - run: rsync -av --delete -e "ssh -o StrictHostKeyChecking=accept-new" public/ bdomars@0xbd.fi:/srv/www/0xbd.fi
 workflows:
   version: 2
   build-n-deploy:
