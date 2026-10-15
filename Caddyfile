@@ -10,6 +10,14 @@
 		trusted_proxies static private_ranges
 		trusted_proxies_strict
 	}
+
+	# Collect HTTP request metrics, served on :9180 below
+	metrics
+}
+
+# Prometheus scrape endpoint. Not routed by the Ingress, only reachable in-cluster
+:9180 {
+	metrics /metrics
 }
 
 :8080 {
