@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Giving 0xbd.fi an overhaul"
 description: "Moving this site from CircleCI, rsync and nginx to a container image built by GitHub Actions and rolled out by Argo CD."
 slug: "site-overhaul-2026"
