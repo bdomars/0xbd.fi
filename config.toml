@@ -25,7 +25,7 @@ canonifyURLs = true
     dateFormat = "January 2, 2006"
 
     hideCredits = false
-    hideCopyright = true
+    hideCopyright = false
 
     # Specify light/dark colorscheme: "auto", "dark" or "light"
     colorScheme = "auto"
@@ -68,6 +68,11 @@ canonifyURLs = true
 [languages]
     [languages.en]
         label = "English"
+
+        [[languages.en.menu.main]]
+        name = "Projects"
+        weight = 2
+        url = "/projects/"
 
         [[languages.en.menu.main]]
         name = "About"

@@ -1,6 +1,6 @@
 ---
 title: Projects
-draft: true
+draft: false
 ---
 
-Here I'll publish some projects that I've made. Some might be more complete than others but I try to put the ones that are complete enough to maybe be useful to others here.
+Things I've been building, tinkering with or fixing, and writing down along the way. Some are small scripts, some are bigger changes to my own setup. Hopefully some of it is useful to someone else trying to do something similar.
