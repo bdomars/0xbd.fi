@@ -25,7 +25,7 @@ canonifyURLs = true
     dateFormat = "January 2, 2006"
 
     hideCredits = false
-    hideCopyright = true
+    hideCopyright = false
 
     # Specify light/dark colorscheme: "auto", "dark" or "light"
     colorScheme = "auto"
