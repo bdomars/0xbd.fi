@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Logging into Kubernetes with Authentik"
 description: "Replacing a cluster-admin token in my kubeconfig with OIDC logins through Authentik, for both kubectl and Headlamp."
 slug: "kubernetes-oidc"
