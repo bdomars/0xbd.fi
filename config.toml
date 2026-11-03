@@ -41,7 +41,8 @@ canonifyURLs = true
     customJS = []
 
     [params.goatCounter]
-        code = "bdomars"
+        code = "bdomars"  # theme only includes the partial when this is set
+        endpoint = "https://gc.0xbd.fi"
 
 [taxonomies]
   category = "categories"

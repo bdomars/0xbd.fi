@@ -1,0 +1,6 @@
+{{ with $.Site.Params.goatCounter.endpoint }}
+<script data-goatcounter="{{ . }}/count" async src="{{ . }}/count.js"></script>
+{{ else }}
+<script data-goatcounter="https://{{ $.Site.Params.goatCounter.code }}.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{{ end }}
