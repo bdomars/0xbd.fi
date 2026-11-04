@@ -36,6 +36,10 @@
 		Strict-Transport-Security "max-age=31536000; includeSubdomains; preload"
 	}
 
+	# WKD keys have no file extension, so file_server sends no Content-Type.
+	# The WKD spec expects binary key data as application/octet-stream.
+	header /.well-known/openpgpkey/hu/* Content-Type application/octet-stream
+
 	handle_errors 404 {
 		rewrite * /404.html
 		file_server
