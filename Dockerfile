@@ -2,7 +2,7 @@ FROM ghcr.io/gohugoio/hugo:v0.169.0 AS build
 COPY --chown=hugo:hugo . /project
 RUN hugo
 
-FROM caddy:2.11.7-alpine
+FROM caddy:2.11.9-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /project/public /srv
 # Port 8080 needs no capabilities, and the file capability stops caddy from
