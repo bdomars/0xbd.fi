@@ -81,6 +81,11 @@ canonifyURLs = true
         url = "/about/"
 
         [[languages.en.menu.main]]
+        name = "CV"
+        weight = 3
+        url = "/cv.pdf"
+
+        [[languages.en.menu.main]]
         name = "Contact"
         weight = 4
         url = "/contact/"
