@@ -19,7 +19,7 @@ canonifyURLs = true
     description = "Björn's personal website"
     keywords = "blog,developer,personal"
     info = "Software Engineer and Tinkerer"
-    avatarURL = "images/avatar.jpg"
+    avatarURL = "images/avatar2.jpg"
     footerContent = "Always carry a towel."
 
     dateFormat = "January 2, 2006"
